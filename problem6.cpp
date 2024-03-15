@@ -2,18 +2,9 @@
 #include <vector>
 using namespace std;
 
-int searchValue(vector<int>& nums, int num){
-    for(int i=0;i<=nums.size();i++){
-        if(nums[i]==num){
-            return i;
-        }
-    }
-    return -1;
-}
-
 int main()
 {
-    int n, num;
+    int n;
     cin>>n;
     
     vector<int> numbers(n);
@@ -21,8 +12,17 @@ int main()
         cin>>numbers[i];
     }
     
-    cin>>num;
-    cout<<searchValue(numbers, num);
+    for(int i=0;i<numbers.size();i++){
+        int count=0;
+        for(int j=0;j<numbers.size();j++){
+            if(numbers[i]>numbers[j]){
+                count++;
+            }
+        }
+        cout<<count<<" ";
+    }
+    
     
     return 0;
 }
+
